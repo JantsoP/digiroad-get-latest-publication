@@ -13,3 +13,5 @@ After download, it will send email to you (using sSMTP to send emails) about new
 After all that is done, it will record the UNIX Timestamp of the file to latest-vayla.txt file to further comparison.
 
 When there is new release, it will be downloaded automatically.
+
+Wanna give some fixes and/or suggestions? Just issue ticket or create pull request :)
