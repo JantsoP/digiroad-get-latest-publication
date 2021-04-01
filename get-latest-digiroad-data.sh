@@ -40,7 +40,7 @@ if [ $onlineversion -gt $offlineversion ]
             echo Setting new latest-vayla.txt file
             curl -s -I  https://aineistot.vayla.fi/digiroad/latest/KokoSuomi_DIGIROAD_R_EUREF-FIN.zip | 
             awk '/Last-Modified/{ date=""; for(i=2;i<=NF;++i) date=(date " " $i); print date;}' | 
-            xargs -I{} date -d {} +"%s" > latest-vayla.txt
+            xargs -I{} date -d {} +"%s" > /opt/latest-vayla.txt
             # Send email 
             ssmtp email@example.tld -F "Digiroad Aineisto" < /opt/email-template.txt
         else 
