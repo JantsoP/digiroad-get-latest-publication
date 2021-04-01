@@ -42,7 +42,7 @@ if [ $onlineversion -gt $offlineversion ]
             awk '/Last-Modified/{ date=""; for(i=2;i<=NF;++i) date=(date " " $i); print date;}' | 
             xargs -I{} date -d {} +"%s" > /opt/latest-vayla.txt
             # Send email 
-            ssmtp email@example.tld -F "Digiroad Aineisto" < /opt/email-template.txt
+            /usr/sbin/ssmtp email@example.tld -F "Digiroad Aineisto" < /opt/email-template.txt
         else 
             echo No new version of KokoSuomi_DIGIROAD_R_EUREF-FIN.zip found.
         fi
