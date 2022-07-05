@@ -30,15 +30,15 @@ fi
 offlineversion=$(cat /opt/latest-vayla.txt)
 
 # Get latest data from Digiroad server
-onlineversion=$(curl -s -I  https://ava.vaylapilvi.fi/ava/Tiest%C3%B6tiedot/Digiroad/Digiroad-irrotusaineistot/latest/KokoSuomi_DIGIROAD_R_EUREF-FIN.zip | awk '/Last-Modified/{ date=""; for(i=2;i<=NF;++i) date=(date " " $i); print date;}' | xargs -I{} date -d {} +"%s")
+onlineversion=$(curl -s -I  https://ava.vaylapilvi.fi/ava/Tie/Digiroad/Aineistojulkaisut/latest/KokoSuomi_DIGIROAD_R_EUREF-FIN.zip | awk '/Last-Modified/{ date=""; for(i=2;i<=NF;++i) date=(date " " $i); print date;}' | xargs -I{} date -d {} +"%s")
 
 # Compare if online version is newer than previously recorded
 if [ $onlineversion -gt $offlineversion ]
         then
             echo New KokoSuomi_DIGIROAD_R_EUREF-FIN.zip detected. Downloading to /opt/KokoSuomi_DIGIROAD_R_EUREF-FIN.zip
-            curl -o /opt/KokoSuomi_DIGIROAD_R_EUREF-FIN.zip https://ava.vaylapilvi.fi/ava/Tiest%C3%B6tiedot/Digiroad/Digiroad-irrotusaineistot/latest/KokoSuomi_DIGIROAD_R_EUREF-FIN.zip
+            curl -o /opt/KokoSuomi_DIGIROAD_R_EUREF-FIN.zip https://ava.vaylapilvi.fi/ava/Tie/Digiroad/Aineistojulkaisut/latest/KokoSuomi_DIGIROAD_R_EUREF-FIN.zip
             echo Setting new latest-vayla.txt file
-            curl -s -I  https://ava.vaylapilvi.fi/ava/Tiest%C3%B6tiedot/Digiroad/Digiroad-irrotusaineistot/latest/KokoSuomi_DIGIROAD_R_EUREF-FIN.zip | 
+            curl -s -I  https://ava.vaylapilvi.fi/ava/Tie/Digiroad/Aineistojulkaisut/latest/KokoSuomi_DIGIROAD_R_EUREF-FIN.zip | 
             awk '/Last-Modified/{ date=""; for(i=2;i<=NF;++i) date=(date " " $i); print date;}' | 
             xargs -I{} date -d {} +"%s" > /opt/latest-vayla.txt
             # Send email 

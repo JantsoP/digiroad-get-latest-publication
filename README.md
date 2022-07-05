@@ -2,7 +2,7 @@
 This will get latest Digiroad publication from Väylävirasto website
 
 I made this script to ease my daily work.
-No need to everyday to go https://aineistot.vayla.fi/digiroad/latest/ and check if there is latest version to download.
+No need to everyday to go https://ava.vaylapilvi.fi/ava/Tie/Digiroad/Aineistojulkaisut/latest and check if there is latest version to download.
 
 Now, whole thing is automated.
 
